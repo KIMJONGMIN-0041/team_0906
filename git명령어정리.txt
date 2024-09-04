@@ -5,11 +5,11 @@ pwd 현재경로 보는법
 
 2. 초기화(.git 폴더 생성 - 숨겨져 있음)
  - git init(장소 생성)을 친다 
- - 파일 보려면 ls -al (숨긴 파일 확인)
+ - 파일 보려면 ls -al (숨겨진 파일 확인)
 
 3. 브랜치 이름 기본값 변경하기(master일때)
- - git config --global init.defaultBranch main
-
+ - git config --global init.defaultBranch main(다음 브랜치명 수정)
+ - git branch -M main(현재 브랜치명 수정)
 4. git 상태확인
 git status
 
@@ -17,7 +17,7 @@ git status
 git add .(현재경로를 기준으로 모든파일/파일명 하나하나도 가능)
 
 * TAB누르면 자동완성 
-* status 눌러서 현재 상태확인햣 
+* status 눌러서 현재 상태확인
 
 6. commit(해당 시점을 저장)
 git commit -m "커밋 메세지"
@@ -26,10 +26,14 @@ git commit -m "커밋 메세지"
 # --global 옵션은 해당 컴퓨터 전체에 적용 글로벌 등록시 2개 계정 사용불가
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
+*git config list로 확인
+
+잘못했으면 --unset 넣어서 작업햣
 
 8. commit 정보 확인
 git log
-
+*log치고 처음나오는 수 16진수(commit 구분 하는 수(그 시점으로 돌아가기 위해서))
+  - 보통7자리 정도까지 치면 문제없음
 9. 과제 
 project_5/test1을 생성
 git으로 관리 
@@ -58,4 +62,15 @@ git remote rm origin
 4. github 데이터 넣기
 git push -u origin main
 
+*rm -rf .git 깃에서 폴더 지우기
+
 다른계정 혹은 다시 연결하고 싶으면 윈도우>>자격증명관리자>>삭제하고 다시 연결
+
+----------------------------
+clone 하기 (github에 있는 코드를 내려받을때)
+ - 코드가 없는 상태에서 전체 코드를 다운로드 받을 경우
+전체를 다 받아야하면 clone
+
+----------------------------
+pull
+ - 코드가 있는 상태에서 변경된 부분만 받을 경우
