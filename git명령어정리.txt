@@ -1,0 +1,61 @@
+1. git으로 관리할 경로까지 이동
+cd /c  << 이런식으로 경로이동
+mkdir 파일생성
+pwd 현재경로 보는법
+
+2. 초기화(.git 폴더 생성 - 숨겨져 있음)
+ - git init(장소 생성)을 친다 
+ - 파일 보려면 ls -al (숨긴 파일 확인)
+
+3. 브랜치 이름 기본값 변경하기(master일때)
+ - git config --global init.defaultBranch main
+
+4. git 상태확인
+git status
+
+5. git으로 관리하는 파일로 추가
+git add .(현재경로를 기준으로 모든파일/파일명 하나하나도 가능)
+
+* TAB누르면 자동완성 
+* status 눌러서 현재 상태확인햣 
+
+6. commit(해당 시점을 저장)
+git commit -m "커밋 메세지"
+
+7. commit은 이전에 계정정보 등록 
+# --global 옵션은 해당 컴퓨터 전체에 적용 글로벌 등록시 2개 계정 사용불가
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+8. commit 정보 확인
+git log
+
+9. 과제 
+project_5/test1을 생성
+git으로 관리 
+파일 생성은 알아서.... 최소 커밋의 수는 5번이상 되도록 하세요
+
+
+-------------------------------------
+로컬 컴퓨터(코드있음)와 github 사이트(비어있음) 연결
+1. remote 정보 확인
+git remote (이름만표시)
+git remote -v (url까지 표시)
+
+2. remote 추가
+git remote add 리모트 이름 
+github 리파지토리주소 
+get remote add origin https://github.com/KIMJONGMIN-0041/project4_work1.git
+(주소는 새로 폴더 만들면 바뀜)
+3. remote 삭제
+git remote rm 리모트이름
+git remote rm origin
+
+(1). git commit -m "Added new files and updated content" 
+(2). git add .로 파일내용 추가하기
+(3). git commit으로 저장하기
+
+4. github 데이터 넣기
+git push -u origin main
+
+다른계정 혹은 다시 연결하고 싶으면 윈도우>>자격증명관리자>>삭제하고 다시 연결
