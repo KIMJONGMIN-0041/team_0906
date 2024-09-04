@@ -69,8 +69,32 @@ git push -u origin main
 ----------------------------
 clone 하기 (github에 있는 코드를 내려받을때)
  - 코드가 없는 상태에서 전체 코드를 다운로드 받을 경우
-전체를 다 받아야하면 clone
+
+   (현재 위치에 리파티토리 이름의 폴더를 만들고 파일을 가져온다.)
+   - git clone<git-remote-url>
+ 
+   (디렉토리 위치에 파일을 가져온다) 
+   - git clone<git-remote-url><디렉토리>
+   - git clone<git-remote-url> .
+
+
+ - 한 단계위의 폴더로 받아야함
+   전체를 다 받아야하면 clone
 
 ----------------------------
 pull
  - 코드가 있는 상태에서 변경된 부분만 받을 경우
+
+----------------------------
+branch 작성
+ - 브랜치 목록 확인
+git branch 
+
+ - 브랜치 생성
+git branch test01
+
+ - 브랜치 이동
+git switch test01
+
+ - 브랜치에서 소스 코딩, add, commit 작업 진행
+ 
