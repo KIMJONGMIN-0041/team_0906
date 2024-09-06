@@ -1,3 +1,4 @@
+https://shimseonjo.github.io/gitStart 정리URL햣
 1. git으로 관리할 경로까지 이동
 cd /c  << 이런식으로 경로이동
 mkdir 파일생성
@@ -112,3 +113,12 @@ git branch -d 브랜치명
 브랜치 복구
 git branch 브랜치명 커밋번호(위에서 말한 7자리 숫자)
  
+git log --graph 
+git log --graph --all(전부)
+git log --graph --oneline (commit번호,메세지)
+
+.git ignore은 git 폴더와 같이 있어야함
+* 파일이름에 .들어가면 숨겨진 파일
+app.ini
+/app.ini(/경로기준으로 제거)
+file/app.ini (파일폴더 안에 app.ini 제거)
