@@ -36,23 +36,31 @@ class CustomerManagementSystem:
                 return
         print(f"'{name}' 고객을 찾을 수 없습니다.")
 
-    # 고객 정보 수정 (Update)
-    def update_customer(customerlist, name, new_name=None, deposit=None, withdraw=None):
+    # 고객 정보 수정 (입금 및 출금 기능)
+    def update_customer(customerlist, name):
         for customer in customerlist.customers:
             if customer.name == name:
-                if new_name:
-                    customer.name = new_name
-                    print(f"이름이 '{new_name}'(으)로 변경되었습니다.")
-                if deposit:
+                print("원하시는 기능을 선택하세요\n")
+                print("1: 입금\n")
+                print("2: 출금\n")
+                InOutChoice = int(input("번호를 입력하세요: "))  # 입력을 int로 변환
+
+                if InOutChoice == 1:  # 입금
+                    deposit = int(input("입금할 금액을 입력하세요: "))
                     customer.balance += deposit
                     print(f"{deposit}원이 입금되었습니다. 현재 잔고: {customer.balance}원")
-                if withdraw:
+
+                elif InOutChoice == 2:  # 출금
+                    withdraw = int(input("출금할 금액을 입력하세요: "))
                     if withdraw <= customer.balance:
                         customer.balance -= withdraw
                         print(f"{withdraw}원이 출금되었습니다. 현재 잔고: {customer.balance}원")
                     else:
                         print("출금 금액이 잔고보다 큽니다.")
+                else:
+                    print("잘못된 입력입니다. 다시 시도해주세요.")
                 return
+
         print(f"'{name}' 고객을 찾을 수 없습니다.")
 
     # 고객 검색 (Search)
@@ -80,7 +88,7 @@ def main_menu():
         print("\n원하시는 기능을 선택하세요:")
         print("1: Create (고객 생성)")
         print("2: Delete (고객 삭제)")
-        print("3: Update (고객 정보 수정)")
+        print("3: Update (입출금 기능)")
         print("4: Search (고객 검색)")
         print("5: Exit (종료)")
         
@@ -92,14 +100,9 @@ def main_menu():
         elif choice == "2":  # 고객 삭제
             name = input("삭제할 고객의 이름을 입력하세요: ")
             cms.delete_customer(name)
-        elif choice == "3":  # 고객 정보 수정
-            name = input("수정할 고객의 이름을 입력하세요: ")
-            new_name = input("새 이름 (변경하지 않으려면 Enter): ") or None
-            deposit = input("입금할 금액 (변경하지 않으려면 Enter): ")
-            deposit = int(deposit) if deposit else None
-            withdraw = input("출금할 금액 (변경하지 않으려면 Enter): ")
-            withdraw = int(withdraw) if withdraw else None
-            cms.update_customer(name, new_name=new_name, deposit=deposit, withdraw=withdraw)
+        elif choice == "3":  # 고객 정보 수정 (입출금)
+            name = input("입출금할 고객의 이름을 입력하세요: ")
+            cms.update_customer(name)
         elif choice == "4":  # 고객 검색
             name = input("검색할 고객의 이름을 입력하세요: ")
             cms.search_customer(name)
